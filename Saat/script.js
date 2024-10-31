@@ -4,11 +4,29 @@ function saatGuncelle() {
     const dakika = String(simdi.getMinutes()).padStart(2, '0');
     const saniye = String(simdi.getSeconds()).padStart(2, '0');
     
-    document.getElementById('saat').innerText = `${saat}:${dakika}:${saniye}`;
+    const yeniSaat = `${saat}:${dakika}:${saniye}`;
+    const saatElementi = document.getElementById('saat');
+    
+    // Eğer saat metni zaten güncel değilse güncelle
+    if (saatElementi.innerText !== yeniSaat) {
+        saatElementi.innerText = yeniSaat;
+    }
 }
 
-// Saatı her saniye güncelle
-setInterval(saatGuncelle, 1000);
+function baslat() {
+    saatGuncelle();
+    // Her saniyede bir güncellemeyi sağlamak için süre kontrolü
+    let sonGuncellemeZamani = Date.now();
+    function animasyonDongusu() {
+        const simdi = Date.now();
+        if (simdi - sonGuncellemeZamani >= 1000) { // 1 saniye geçmişse güncelle
+            saatGuncelle();
+            sonGuncellemeZamani = simdi;
+        }
+        requestAnimationFrame(animasyonDongusu);
+    }
+    animasyonDongusu();
+}
 
-// Sayfa yüklendiğinde saat güncellemeye başla
-saatGuncelle();
+// Sayfa yüklendiğinde başlat
+window.addEventListener('DOMContentLoaded', baslat);

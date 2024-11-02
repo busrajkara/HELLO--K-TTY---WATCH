@@ -1,0 +1,88 @@
+
+body {
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(145deg, #ffe6f7, #ffcce6);
+    color: #ff69b4;
+}
+
+#app {
+    text-align: center;
+    width: 350px;
+    background-color: #fff0f5;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+    border: 3px solid #ffb6c1;
+}
+
+h1 {
+    font-size: 1.6em;
+    margin: 10px 0;
+    color: #ff69b4;
+}
+
+#clock, #stopwatch {
+    font-size: 2.8em;
+    margin: 15px 0;
+    color: #ff1493;
+    background-color: #ffe6f7;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+    transition: transform 0.2s;
+    cursor: url('https://cdn-icons-png.flaticon.com/512/2107/2107845.png'), auto;
+}
+
+
+#clock:hover, #stopwatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    cursor: url('https://cdn-icons-png.flaticon.com/512/2107/2107845.png'), auto;
+}
+
+#controls {
+    margin-top: 15px;
+}
+
+button {
+    padding: 12px;
+    margin: 5px;
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    font-size: 1em;
+    cursor: pointer;
+    color: white;
+    background-color: #ff69b4;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+button#start-btn {
+    background-color: #ffb6c1;
+}
+
+button#stop-btn {
+    background-color: #ff69b4;
+}
+
+button#reset-btn {
+    background-color: #ff1493;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#clock, #stopwatch, button {
+    border: 2px solid #ffb6c1;
+}
